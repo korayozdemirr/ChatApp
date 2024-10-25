@@ -10,9 +10,9 @@ const useGetMessage = () => {
       setLoading(true);
       if (selectedConversation && selectedConversation._id) {
         try {
-          const res = await axios.get(
-            `/api/message/get/${selectedConversation._id}`
-          );
+          const res = await axios.get(`/api/message/get/${selectedConversation._id}`,{
+            baseURL:"http://192.168.1.110:4002"
+          });
           setMessage(res.data);
           setLoading(false);
         } catch (error) {

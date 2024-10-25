@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthProvider";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+import axiosInstance from "../axiosInstance";
 
 function Login() {
   const [authUser, setAuthUser] = useAuth();
@@ -19,15 +20,16 @@ function Login() {
       email: data.email,
       password: data.password,
     };
-    // console.log(userInfo);
-    axios
-      .post("/api/user/login", userInfo)
+
+    axiosInstance
+      .post("/api/user/login", userInfo, {withCredentials:true})
       .then((response) => {
         if (response.data) {
           toast.success("Login successful");
         }
         localStorage.setItem("ChatApp", JSON.stringify(response.data));
         setAuthUser(response.data);
+        console.log()
       })
       .catch((error) => {
         if (error.response) {
