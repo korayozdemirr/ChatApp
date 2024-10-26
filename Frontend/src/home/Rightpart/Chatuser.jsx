@@ -22,7 +22,7 @@ function Chatuser() {
         <CiMenuFries className="text-white text-xl" />
       </label>
       <div className="flex space-x-3 items-center justify-center h-[8vh] bg-gray-800 hover:bg-gray-700 duration-300">
-        <div className="avatar online">
+        <div className={`avatar ${getOnlineUsersStatus(selectedConversation._id).toLowerCase()}`}>
           <div className="w-16 rounded-full">
             <img src={profile} />
           </div>
