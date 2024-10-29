@@ -2,7 +2,6 @@ import React from "react";
 import useConversation from "../../zustand/useConversation.js";
 import { useSocketContext } from "../../context/SocketContext.jsx";
 
-import profile from "../../../public/user.jpg";
 
 function User({ user }) {
   const { selectedConversation, setSelectedConversation } = useConversation();
@@ -19,7 +18,7 @@ function User({ user }) {
       <div className="flex space-x-4 px-8 py-3 hover:bg-slate-700 duration-300 cursor-pointer">
         <div className={`avatar ${isOnline ? "online" : ""}`}>
           <div className="w-12 rounded-full">
-            <img src={profile} />
+            <img src="/user.jpg" />
           </div>
         </div>
         <div>

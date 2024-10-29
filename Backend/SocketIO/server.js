@@ -36,6 +36,9 @@ io.on("connection", (socket) => {
     delete users[userId];
     io.emit("getOnlineUsers", Object.keys(users));
   });
+  socket.on("typing", data=>{
+    console.log(data)
+  })
 });
 
 export { app, io, server };
